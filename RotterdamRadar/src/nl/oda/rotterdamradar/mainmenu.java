@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -23,6 +24,7 @@ public class mainmenu extends Activity {
 		ImageButton button2 = (ImageButton) findViewById(R.id.button2);
 		ImageButton button3 = (ImageButton) findViewById(R.id.button3);
 		ImageButton button4 = (ImageButton) findViewById(R.id.button4);
+		Button button5 =(Button) findViewById(R.id.button5);
 
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -55,6 +57,13 @@ public class mainmenu extends Activity {
 			}
 		});
 		
+		button5.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent x = new Intent(mainmenu.this, Nieuws.class);
+				startActivity(x);
+
+			}
+		});
 		
 	}
 	

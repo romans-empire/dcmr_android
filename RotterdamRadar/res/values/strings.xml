@@ -8,16 +8,18 @@
     <string name="snippet">Melding</string>
     <string name="mobiel">Vul hier uw telefoonnummer in</string>
     <string name="mail">Vul hier uw mailadres in</string>
-    <string name="onderwerp">Onderwerp</string>
+    <string name="postcode">Vul hier uw postcode in</string>
+    <string name="onderwerp">Wat voor klacht heeft u?</string>
     <string name="verzenden">Verzenden</string>
-    <string name="bericht">Bericht</string>
-    <string name="contact">Wilt u een klacht indienen, heeft u een vraag of opmerking? Vul dan het contactformulier in.</string>
+    <string name="bericht">opmerkingen</string>
+    <string name="contact">Dien een klacht in</string>
     <string name="naam">Vul hier uw naam in</string>
     <string name="info">De DCMR werkt voor bewoners, bedrijven en de overheid.\n\n
     Ruim 1,2 miljoen bewoners van het Rijnmondgebied kunnen bij ons 24 uur per dag hun milieuklachten kwijt, maar ook vragen stellen over het milieu in het gebied. Meer dan 22.000 bedrijven vragen bij ons hun vergunning aan. Sommigen krijgen een vergunning op maat, anderen hoeven slechts hun activiteiten te melden. Ook neemt DCMR met zijn milieuexpertise deel in projecten in binnen- en buitenland.\n
     \n<b>Historie</b>\n
     De feitelijke oprichting van de DCMR dateert van 1971. De toenmalige Rijnmondraad besloot in dat jaar, gelet op de grote concentratie van milieubelastende activiteiten in een verstedelijkt gebied, tot oprichting van de Dienst Centraal Milieubeheer Rijnmond.\n\n
     Tussen de verschillende vormen van milieubelasting bestaat in het gebied een belangrijke samenhang, enerzijds vanwege cumulatieve effecten, anderzijds doordat de milieubelastingen vaak zijn terug te voeren op dezelfde bedrijfssectoren. Een gezamenlijke inspanning, waarbij provincie en gemeenten samenwerken, is voor de aanpak van de milieubelasting noodzakelijk.\n</string>
-
+	<string name="appinfo">Deze app is om klachten in te dienen bij de dcmr \n
+	    Om een klacht in te dienen open je de map en kan je een klacht plaatsen. of je vult lekker het formulier in.</string>
 
 </resources>

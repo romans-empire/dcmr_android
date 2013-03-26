@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class MailActivity extends Activity implements OnClickListener,
 		OnItemSelectedListener {
 	/** Called when the activity is first created. */
-	EditText naamField, mailField, mobielField, berichtField;
+	EditText naamField, mailField, mobielField, berichtField, postcodeField;
 	Spinner subject;
 
 	@Override
@@ -31,9 +31,10 @@ public class MailActivity extends Activity implements OnClickListener,
 		mailField = (EditText) findViewById(R.id.editTextMail);
 		mobielField = (EditText) findViewById(R.id.editTextMobiel);
 		berichtField = (EditText) findViewById(R.id.editTextBericht);
+		postcodeField = (EditText) findViewById(R.id.editPostcode);
 
 		subject = (Spinner) findViewById(R.id.spinner);
-		String subjects[] = new String[] { "Klacht", "Vraag", "Opmerking" };
+		String subjects[] = new String[] { "Vul in", "Stankoverlast", "Geluidsoverlast", "Stofoverlast", "Lichtoverlast" };
 		subject.setOnItemSelectedListener(this);
 		ArrayAdapter<String> sa = new ArrayAdapter<String>(this,
 				R.layout.spinner_item, subjects);
@@ -52,6 +53,8 @@ public class MailActivity extends Activity implements OnClickListener,
 			mailField.setError("Vul uw email in");
 		} else if (mobielField.getText().toString().length() != 10) {
 			mobielField.setError("Vul een geldig telefoonnummer in");
+		} else if (postcodeField.getText().toString().length() == 0) {
+			postcodeField.setError("Vul een postcode in");
 		} else if (berichtField.getText().toString().length() == 0) {
 			berichtField.setError("Vul uw bericht in");
 		} else if (subject.getSelectedItemPosition() == 0) {
@@ -61,13 +64,12 @@ public class MailActivity extends Activity implements OnClickListener,
 			String body = "Name : " + naamField.getText().toString()
 					+ "<br>Mobile :" + mobielField.getText().toString()
 					+ "<br>Email :" + mailField.getText().toString()
-					+ "<br>Bericht :" + berichtField.getText().toString();
+					+ "<br>Bericht :" + berichtField.getText().toString()
+					+ "<br>Postcode :" + postcodeField.getText().toString();
 
 			Intent email = new Intent(Intent.ACTION_SEND);
-			email.putExtra(Intent.EXTRA_EMAIL,
-					new String[] { "richard-lindhout@hotmail.com" });
-			email.putExtra(Intent.EXTRA_SUBJECT, subject.getSelectedItem()
-					.toString());
+			email.putExtra(Intent.EXTRA_EMAIL, new String[] { "richard-lindhout@hotmail.com" });
+			email.putExtra(Intent.EXTRA_SUBJECT, subject.getSelectedItem().toString());
 			email.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(body));
 			email.setType("message/rfc822");
 			startActivityForResult(Intent.createChooser(email, "Richard"), 1);

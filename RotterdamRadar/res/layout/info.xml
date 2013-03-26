@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/nl.oda.rotterdamradar"
+<LinearLayout xmlns:android1="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -16,33 +16,94 @@
         android:background="@drawable/dcmr" />
 
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
 
-        <LinearLayout
+
+    <TableRow
+        android1:id="@+id/tableRow2"
+        android1:layout_width="match_parent"
+        android:layout_height="0dip"
+        android1:layout_weight="70"
+        android:layout_gravity="bottom" >
+
+        <TabHost
+            android:id="@+id/tabhost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical" >
+            android:layout_height="match_parent" >
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="DCMR Milieudienst Rijnmond"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/info"
-                android:textColor="#000000" />
-        </LinearLayout>
-    </ScrollView>
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="45dp"
+			    android:orientation="horizontal" >
+                
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:tabStripEnabled="false" >
+                </TabWidget>
+			</LinearLayout>
+
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom">
+
+                    <LinearLayout
+                        
+                        android:id="@+id/infoApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:padding="15dp" >
+						
+                        <ScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/infoApp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            
+                            android:text="@string/info" 
+                            android:layout_marginBottom="5dp" 
+                            android:textColor="#030303"/>
+                        </ScrollView>
+                        
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/infoDCMR"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:orientation="vertical"
+                        android:padding="15dp" >
+                        
+                        <TextView
+                            android:id="@+id/infoDCMR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#030303"
+                            android:text="@string/appinfo" />
+                        
+                        
+                    </LinearLayout>        
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+    </TableRow>
 
 </LinearLayout>
