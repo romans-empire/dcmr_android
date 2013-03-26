@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_weight="0.80"
+        android1:orientation="vertical"
+        android1:weightSum="0.8" >
+
+        <TextView
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/title" />
+
+        <EditText
+            android1:id="@+id/adresedit"
+            android1:layout_width="match_parent"
+            android1:layout_height="wrap_content"
+            android1:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/snippet" />
+
+        <EditText
+            android1:id="@+id/meldingedit"
+            android1:layout_width="match_parent"
+            android1:layout_height="wrap_content"
+            android1:ems="10" />
+
+        <ImageView
+            android1:id="@+id/imgMM"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content" >
+
+        <Button
+            android1:id="@+id/ibutton"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="gallerij" />
+
+        <Button
+            android1:id="@+id/mmfoto"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="foto" />
+    </LinearLayout>
+
+</LinearLayout>
