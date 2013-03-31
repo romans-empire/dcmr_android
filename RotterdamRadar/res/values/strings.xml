@@ -19,7 +19,9 @@
     \n<b>Historie</b>\n
     De feitelijke oprichting van de DCMR dateert van 1971. De toenmalige Rijnmondraad besloot in dat jaar, gelet op de grote concentratie van milieubelastende activiteiten in een verstedelijkt gebied, tot oprichting van de Dienst Centraal Milieubeheer Rijnmond.\n\n
     Tussen de verschillende vormen van milieubelasting bestaat in het gebied een belangrijke samenhang, enerzijds vanwege cumulatieve effecten, anderzijds doordat de milieubelastingen vaak zijn terug te voeren op dezelfde bedrijfssectoren. Een gezamenlijke inspanning, waarbij provincie en gemeenten samenwerken, is voor de aanpak van de milieubelasting noodzakelijk.\n</string>
-	<string name="appinfo">Deze app is om klachten in te dienen bij de dcmr \n
-	    Om een klacht in te dienen open je de map en kan je een klacht plaatsen. of je vult lekker het formulier in.</string>
+	<string name="appinfo">Deze app is om klachten in te dienen bij de dcmr \n \n
+	    Als u een klacht wilt indienen bij de dcmr kunt u de map openen. Vervolgens drukt u op de map en kunt u gegevens invoeren over de klacht. U kunt ook een foto toevoegen zodat de dcmr direct kan zien wat de klacht is. 
+	    \n Ook kunt u het klachtenformulier invullen. Dit werkt op dezelfde manier als op de dcmr website en stuurt vervolgens het formulier naar het mailadres van de dcmr.
+	     Verder kunt u in deze app nog informatie vinden over de dcmr en de laatste nieuwsberichten van de dcmr.</string>
 
 </resources>

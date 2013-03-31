@@ -17,13 +17,13 @@ public class Info extends Activity {
         tabHost.setup(); 
 
         
-        TabSpec specs1 = tabHost.newTabSpec("InfoApp");
-        specs1.setIndicator("infoApp");
-        specs1.setContent(R.id.infoApp);
+        TabSpec specs2 = tabHost.newTabSpec("InfoApp");
+        specs2.setIndicator("infoApp");
+        specs2.setContent(R.id.infoApp);
         
-        TabSpec specs2 = tabHost.newTabSpec("infoDCMR");
-        specs2.setIndicator("infoDCMR");
-        specs2.setContent(R.id.infoDCMR);
+        TabSpec specs1 = tabHost.newTabSpec("infoDCMR");
+        specs1.setIndicator("infoDCMR");
+        specs1.setContent(R.id.infoDCMR);
        
         
         tabHost.addTab(specs1);
