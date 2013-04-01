@@ -343,12 +343,14 @@ containing a value of this type.
     public static final class drawable {
         public static final int dcmr=0x7f020000;
         public static final int dcmr1=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int info_icon=0x7f020003;
-        public static final int mail_icon=0x7f020004;
-        public static final int map_icon=0x7f020005;
-        public static final int off_icon=0x7f020006;
-        public static final int werkgebieddcmr=0x7f020007;
+        public static final int exit_icon=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int info_icon=0x7f020004;
+        public static final int mail_icon=0x7f020005;
+        public static final int map_icon=0x7f020006;
+        public static final int nieuws_icon=0x7f020007;
+        public static final int off_icon=0x7f020008;
+        public static final int werkgebieddcmr=0x7f020009;
     }
     public static final class id {
         public static final int TableLayout1=0x7f05002a;
