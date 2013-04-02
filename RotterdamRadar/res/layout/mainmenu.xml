@@ -92,13 +92,31 @@
 
         </TableRow>
 		
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/button5"
+                android:background="#ffffff"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                app:layout_column="1"
+                app:layout_columnSpan="2"
+                app:layout_gravity="left"
+                app:layout_row="1"
+                app:layout_rowSpan="2"
+                android:baselineAlignBottom="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/nieuws_icon" />
+
+
+        </TableRow>
         
 
     </TableLayout>
-<Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="nieuws" />
+
 </LinearLayout>
