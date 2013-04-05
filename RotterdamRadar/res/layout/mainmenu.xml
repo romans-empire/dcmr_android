@@ -34,11 +34,6 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
-                app:layout_column="1"
-                app:layout_columnSpan="2"
-                app:layout_gravity="left"
-                app:layout_row="1"
-                app:layout_rowSpan="2"
                 android:baselineAlignBottom="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/map_icon" />
@@ -51,9 +46,6 @@
                 android:layout_margin="10dp"
                 android:scaleType="fitXY"
                 android:layout_weight="1"
-                app:layout_column="2"
-                app:layout_gravity="right"
-                app:layout_row="1"
                 android:src="@drawable/mail_icon" />
 
         </TableRow>
@@ -71,10 +63,6 @@
                 android:layout_margin="10dp"
                 android:scaleType="fitXY"
                 android:layout_weight="1"
-                app:layout_column="1"
-                app:layout_columnSpan="2"
-                app:layout_gravity="left"
-                app:layout_row="2"
                 android:src="@drawable/info_icon" />
 
             <ImageButton
@@ -84,38 +72,28 @@
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:layout_column="2"
-                app:layout_gravity="right"
-                app:layout_row="2"
                 android:scaleType="fitXY"
-                android:src="@drawable/exit_icon" />
+                android:src="@drawable/off_icon" />
 
         </TableRow>
-		
+        
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
             <ImageButton
                 android:id="@+id/button5"
                 android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_margin="10dp"
-                app:layout_column="1"
-                app:layout_columnSpan="2"
-                app:layout_gravity="left"
-                app:layout_row="1"
-                app:layout_rowSpan="2"
-                android:baselineAlignBottom="true"
                 android:scaleType="fitXY"
+                android:layout_weight="1"
                 android:src="@drawable/nieuws_icon" />
 
 
         </TableRow>
-        
 
     </TableLayout>
 

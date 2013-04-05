@@ -24,7 +24,7 @@ public class mainmenu extends Activity {
 		ImageButton button2 = (ImageButton) findViewById(R.id.button2);
 		ImageButton button3 = (ImageButton) findViewById(R.id.button3);
 		ImageButton button4 = (ImageButton) findViewById(R.id.button4);
-		ImageButton button5 =(ImageButton) findViewById(R.id.button5);
+		ImageButton button5 = (ImageButton) findViewById(R.id.button5);
 
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
