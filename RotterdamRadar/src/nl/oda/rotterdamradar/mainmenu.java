@@ -25,7 +25,8 @@ public class mainmenu extends Activity {
 		ImageButton button3 = (ImageButton) findViewById(R.id.button3);
 		ImageButton button4 = (ImageButton) findViewById(R.id.button4);
 		ImageButton button5 = (ImageButton) findViewById(R.id.button5);
-
+		ImageButton button6 = (ImageButton) findViewById(R.id.button6);		
+		
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent x = new Intent(mainmenu.this, MailActivity.class);
@@ -65,6 +66,20 @@ public class mainmenu extends Activity {
 			}
 		});
 		
+		button6.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+
+				Intent shareIntent = new Intent(Intent.ACTION_SEND);
+				shareIntent.setType("text/plain");
+				shareIntent
+						.putExtra(
+								Intent.EXTRA_TEXT,
+								"Gebruik net als mij de DCMR app om meldingen te doen bij de DCMR als u ook last heeft van bedrijven in de buurt!");
+				shareIntent.putExtra(Intent.EXTRA_SUBJECT, "The title");
+				startActivity(Intent.createChooser(shareIntent, "Share..."));
+
+			}
+		});
 	}
 	
 	private void StartAnimations() {

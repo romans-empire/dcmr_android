@@ -145,16 +145,18 @@ containing a value of this type.
         public static final int map_icon=0x7f020006;
         public static final int nieuws_icon=0x7f020007;
         public static final int off_icon=0x7f020008;
-        public static final int werkgebieddcmr=0x7f020009;
+        public static final int tellafriend=0x7f020009;
+        public static final int werkgebieddcmr=0x7f02000a;
     }
     public static final class id {
         public static final int TableLayout1=0x7f050018;
-        public static final int adresedit=0x7f050021;
+        public static final int adresedit=0x7f050022;
         public static final int button1=0x7f05001c;
         public static final int button2=0x7f05001b;
         public static final int button3=0x7f05001a;
         public static final int button4=0x7f05001d;
         public static final int button5=0x7f05001f;
+        public static final int button6=0x7f050020;
         public static final int buttonSend=0x7f05000c;
         public static final int editPostcode=0x7f050009;
         public static final int editTekstNaam=0x7f050006;
@@ -165,18 +167,18 @@ containing a value of this type.
         public static final int iFoto=0x7f050017;
         public static final int iMelding=0x7f050016;
         public static final int iOnderwerp=0x7f050015;
-        public static final int ibutton=0x7f050024;
-        public static final int imgMM=0x7f050023;
+        public static final int ibutton=0x7f050025;
+        public static final int imgMM=0x7f050024;
         public static final int infoApp=0x7f050012;
         public static final int infoApp1=0x7f050010;
         public static final int infoDCMR=0x7f050013;
-        public static final int lin_lay=0x7f050029;
+        public static final int lin_lay=0x7f05002a;
         public static final int logo=0x7f05000d;
-        public static final int mainlo=0x7f050020;
+        public static final int mainlo=0x7f050021;
         public static final int map=0x7f050005;
-        public static final int meldingedit=0x7f050022;
-        public static final int menu_settings=0x7f05002a;
-        public static final int mmfoto=0x7f050025;
+        public static final int meldingedit=0x7f050023;
+        public static final int menu_settings=0x7f05002b;
+        public static final int mmfoto=0x7f050026;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
@@ -186,9 +188,9 @@ containing a value of this type.
         public static final int tableRow2=0x7f05000e;
         public static final int tableRow3=0x7f05001e;
         public static final int terrain=0x7f050003;
-        public static final int txtDate=0x7f050027;
-        public static final int txtDescription=0x7f050028;
-        public static final int txtTitle=0x7f050026;
+        public static final int txtDate=0x7f050028;
+        public static final int txtDescription=0x7f050029;
+        public static final int txtTitle=0x7f050027;
         public static final int werkgebied=0x7f050011;
         public static final int werkgebied1=0x7f050014;
     }

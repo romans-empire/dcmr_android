@@ -91,6 +91,16 @@
                 android:scaleType="fitXY"
                 android:layout_weight="1"
                 android:src="@drawable/nieuws_icon" />
+            
+            <ImageButton
+                android:id="@+id/button6"
+                android:background="#ffffff"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:layout_weight="1"
+                android:src="@drawable/tellafriend" />
 
 
         </TableRow>
