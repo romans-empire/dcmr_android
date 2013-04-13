@@ -29,23 +29,23 @@
 
             <ImageButton
                 android:id="@+id/button3"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
                 android:baselineAlignBottom="true"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
                 android:src="@drawable/map_icon" />
 
             <ImageButton
                 android:id="@+id/button2"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:scaleType="fitXY"
                 android:layout_weight="1"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
                 android:src="@drawable/mail_icon" />
 
         </TableRow>
@@ -57,22 +57,22 @@
 
             <ImageButton
                 android:id="@+id/button1"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:scaleType="fitXY"
                 android:layout_weight="1"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
                 android:src="@drawable/info_icon" />
 
             <ImageButton
                 android:id="@+id/button4"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:scaleType="fitXY"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
                 android:src="@drawable/off_icon" />
 
         </TableRow>
@@ -84,24 +84,23 @@
 
             <ImageButton
                 android:id="@+id/button5"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:scaleType="fitXY"
                 android:layout_weight="1"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
                 android:src="@drawable/nieuws_icon" />
             
             <ImageButton
                 android:id="@+id/button6"
-                android:background="#ffffff"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:scaleType="fitXY"
                 android:layout_weight="1"
+                android:background="#ffffff"
+                android:scaleType="centerInside"
                 android:src="@drawable/tellafriend" />
-
 
         </TableRow>
 

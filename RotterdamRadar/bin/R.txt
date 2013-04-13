@@ -3,6 +3,7 @@ int anim fadein 0x7f040001
 int anim fadeout 0x7f040002
 int anim notrans 0x7f040003
 int anim translate 0x7f040004
+int array spinnerlijst 0x7f070000
 int attr cameraBearing 0x7f010001
 int attr cameraTargetLat 0x7f010002
 int attr cameraTargetLng 0x7f010003
@@ -29,7 +30,6 @@ int drawable off_icon 0x7f020008
 int drawable tellafriend 0x7f020009
 int drawable werkgebieddcmr 0x7f02000a
 int id TableLayout1 0x7f050018
-int id adresedit 0x7f050022
 int id button1 0x7f05001c
 int id button2 0x7f05001b
 int id button3 0x7f05001a
@@ -61,6 +61,7 @@ int id mmfoto 0x7f050026
 int id none 0x7f050000
 int id normal 0x7f050001
 int id satellite 0x7f050002
+int id spinmark 0x7f050022
 int id spinner 0x7f05000a
 int id tabhost 0x7f05000f
 int id tableRow1 0x7f050019
@@ -82,7 +83,7 @@ int layout nieuws 0x7f030006
 int layout rssitemview 0x7f030007
 int layout spinner_item 0x7f030008
 int layout splashscreen 0x7f030009
-int menu activity_main 0x7f080000
+int menu activity_main 0x7f090000
 int string app_name 0x7f060011
 int string appinfo 0x7f06001f
 int string auth_client_availability_notification_title 0x7f06000e
@@ -115,8 +116,8 @@ int string postcode 0x7f060018
 int string snippet 0x7f060015
 int string title 0x7f060014
 int string verzenden 0x7f06001a
-int style AppBaseTheme 0x7f070000
-int style AppTheme 0x7f070001
+int style AppBaseTheme 0x7f080000
+int style AppTheme 0x7f080001
 int[] styleable MapAttrs { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d }
 int styleable MapAttrs_cameraBearing 1
 int styleable MapAttrs_cameraTargetLat 2

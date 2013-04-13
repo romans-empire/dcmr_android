@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="spinnerlijst">
+<item>Stof</item>
+<item>Light</item>
+<item>Stank</item>
+<item>Geluid</item>
+</string-array>
+    
+    
+    
     <string name="app_name">RotterdamRadar</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>

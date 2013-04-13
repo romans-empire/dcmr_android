@@ -10,6 +10,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,9 +22,13 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MapActivity extends FragmentActivity implements LocationListener {
@@ -31,7 +36,9 @@ public class MapActivity extends FragmentActivity implements LocationListener {
 	Context context = this;
 	GoogleMap gmap;
 	private ImageView imageview;
+	private String markerIcon = "default";
 	private AlertDialog alertf;
+	Spinner spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,94 +80,119 @@ public class MapActivity extends FragmentActivity implements LocationListener {
 
 		gmap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
 
-			public void onMapLongClick(final LatLng latlng) {
-				LayoutInflater li = LayoutInflater.from(context);
-				final View v = li.inflate(R.layout.markermenu, null);
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			@Override
+			public void onMapLongClick(LatLng point) {
+				// TODO Auto-generated method stub
+				mark(point);
+			}
 
-				builder.setView(v);
-				builder.setCancelable(false);
+		});
 
-				builder.setPositiveButton("Ok",
-						new DialogInterface.OnClickListener() {
+	}
 
-							public void onClick(final DialogInterface dialog,
-									int which) {
-								EditText title = (EditText) v
-										.findViewById(R.id.adresedit);
-								EditText snippet = (EditText) v
-										.findViewById(R.id.meldingedit);
+	public void mark(final LatLng latlng) {
+		LayoutInflater li = LayoutInflater.from(context);
+		final View v = li.inflate(R.layout.markermenu, null);
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-								String ceck = "lol";
-								String sceck = title.getText().toString();
-								System.out.println(ceck + " " + sceck);
-								if (ceck.equals(sceck)) {
+		builder.setView(v);
+		builder.setCancelable(false);
 
-									gmap.addMarker(new MarkerOptions()
-											.title(title.getText().toString())
-											.snippet(
-													snippet.getText()
-															.toString())
-											.icon(BitmapDescriptorFactory
-													.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
-											.position(latlng));
-								} else {
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
-									gmap.addMarker(new MarkerOptions()
-											.title(title.getText().toString())
-											.snippet(
-													snippet.getText()
-															.toString())
-											.icon(BitmapDescriptorFactory
-													.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
-											.position(latlng));
-								}
-							}
-						});
+			public void onClick(final DialogInterface dialog, int which) {
 
-				builder.setNegativeButton("Nope",
-						new DialogInterface.OnClickListener() {
+				EditText snippet = (EditText) v.findViewById(R.id.meldingedit);
 
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.cancel();
+				String markerTitel = spinner.getSelectedItem().toString();
 
-							}
-						});
+				if (markerTitel.equals("Stof")) {
+					gmap.addMarker(new MarkerOptions()
+							.title(markerTitel+" overlast")
+							.snippet(snippet.getText().toString())
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+							.position(latlng));
+				}
+				if (markerTitel.equals("Light")) {
+					gmap.addMarker(new MarkerOptions()
+							.title(markerTitel+" overlast")
+							.snippet(snippet.getText().toString())
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+							.position(latlng));
 
-				AlertDialog alert = builder.create();
-				alertf = alert;
-				alert.show();
+				}
+				if (markerTitel.equals("Stank")) {
+					gmap.addMarker(new MarkerOptions()
+							.title(markerTitel+" overlast")
+							.snippet(snippet.getText().toString())
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+							.position(latlng));
 
-				Button buttonImgLoader = (Button) alert
-						.findViewById(R.id.ibutton);
-				Button fotoImgLoader = (Button) alert.findViewById(R.id.mmfoto);
+				}
+				if (markerTitel.equals("Geluid")) {
+					gmap.addMarker(new MarkerOptions()
+							.title(markerTitel+" overlast")
+							.snippet(snippet.getText().toString())
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+							.position(latlng));
 
-				buttonImgLoader.setOnClickListener(new View.OnClickListener() {
+				}
+			}
+		});
+
+		builder.setNegativeButton("Nope",
+				new DialogInterface.OnClickListener() {
 
 					@Override
-					public void onClick(View v) {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
 
-						Intent choosePictureIntent = new Intent(
-								Intent.ACTION_PICK,
-								android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-						startActivityForResult(choosePictureIntent, 0);
 					}
 				});
 
-				fotoImgLoader.setOnClickListener(new View.OnClickListener() {
+		AlertDialog alert = builder.create();
 
-					@Override
-					public void onClick(View v) {
+		alertf = alert;
 
-						Intent takePicture = new Intent(
-								android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-						startActivityForResult(takePicture, 1);
-					}
+		alert.show();
 
-				});
+		spinner = (Spinner) alert.findViewById(R.id.spinmark);
 
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, R.array.spinnerlijst,
+				android.R.layout.simple_spinner_item);
+
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		spinner.setAdapter(adapter);
+
+		Button buttonImgLoader = (Button) alert.findViewById(R.id.ibutton);
+		Button fotoImgLoader = (Button) alert.findViewById(R.id.mmfoto);
+
+		buttonImgLoader.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				Intent choosePictureIntent = new Intent(
+						Intent.ACTION_PICK,
+						android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				startActivityForResult(choosePictureIntent, 0);
+			}
+		});
+
+		fotoImgLoader.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				Intent takePicture = new Intent(
+						android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+				startActivityForResult(takePicture, 1);
 			}
 
 		});
