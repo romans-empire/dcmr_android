@@ -2,108 +2,275 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/nl.oda.rotterdamradar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="#ffffff"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/dcmr" />
 
-    <TableLayout
-        android:id="@+id/TableLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:id="@+id/button3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:baselineAlignBottom="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/map_icon" />
-
-            <ImageButton
-                android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@drawable/mail_icon" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
-            <ImageButton
-                android:id="@+id/button1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@drawable/info_icon" />
+            <TableLayout
+                android:id="@+id/TableLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
 
-            <ImageButton
-                android:id="@+id/button4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@drawable/off_icon" />
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
 
-        </TableRow>
-        
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
 
-            <ImageButton
-                android:id="@+id/button5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@drawable/nieuws_icon" />
-            
-            <ImageButton
-                android:id="@+id/button6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:scaleType="centerInside"
-                android:src="@drawable/tellafriend" />
+                        <ImageButton
+                            android:id="@+id/button3"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:baselineAlignBottom="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/map_icon" />
 
-        </TableRow>
+                        <TextView
+                            android:id="@+id/textViewMap"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="plaats een klacht via de map" />
 
-    </TableLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.01"
+                        android:background="#cdcdcd"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/button2"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/mail_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMail"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="plaats een klacht via het formulier" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="#cdcdcd" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/button1"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:baselineAlignBottom="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/info_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMap"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="algemene informatie over de app" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.01"
+                        android:background="#cdcdcd"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/button4"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/list_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMail"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="bekijk hier uw klachten" />
+                    </LinearLayout>
+                </TableRow>
+                
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="#cdcdcd" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/button5"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:baselineAlignBottom="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/nieuws_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMap"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="lees hier het laatste nieuws van de DCMR" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.01"
+                        android:background="#cdcdcd"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/button6"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/tellafriend" />
+
+                        <TextView
+                            android:id="@+id/textViewMail"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="share de DCMR app met vrienden" />
+                    </LinearLayout>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

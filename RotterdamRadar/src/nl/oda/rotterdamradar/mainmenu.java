@@ -1,6 +1,7 @@
 package nl.oda.rotterdamradar;
 
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class mainmenu extends Activity {
+	
+	public static Vibrator myVib;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,8 @@ public class mainmenu extends Activity {
 		overridePendingTransition(R.anim.notrans, R.anim.notrans);
 		setContentView(R.layout.mainmenu);
 		StartAnimations();
+		
+		myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
 		ImageButton button1 = (ImageButton) findViewById(R.id.button1);
 		ImageButton button2 = (ImageButton) findViewById(R.id.button2);
@@ -29,6 +34,7 @@ public class mainmenu extends Activity {
 		
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				Vibrate();
 				Intent x = new Intent(mainmenu.this, MailActivity.class);
 				startActivity(x);
 
@@ -37,6 +43,7 @@ public class mainmenu extends Activity {
 
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				Vibrate();
 				Intent x = new Intent(mainmenu.this, Info.class);
 				startActivity(x);
 
@@ -45,13 +52,16 @@ public class mainmenu extends Activity {
 
 		button4.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				System.exit(0);
+				Vibrate();
+				Intent x = new Intent(mainmenu.this, AndroidJSONParsingActivity.class);
+				startActivity(x);
 
 			}
 		});
 
 		button3.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				Vibrate();
 				Intent x = new Intent(mainmenu.this, MapActivity.class);
 				startActivity(x);
 
@@ -60,6 +70,7 @@ public class mainmenu extends Activity {
 		
 		button5.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				Vibrate();
 				Intent x = new Intent(mainmenu.this, Nieuws.class);
 				startActivity(x);
 
@@ -69,6 +80,7 @@ public class mainmenu extends Activity {
 		button6.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 
+				Vibrate();
 				Intent shareIntent = new Intent(Intent.ACTION_SEND);
 				shareIntent.setType("text/plain");
 				shareIntent
@@ -80,6 +92,11 @@ public class mainmenu extends Activity {
 
 			}
 		});
+	}
+	
+	public static void Vibrate()
+	{
+		myVib.vibrate(50);
 	}
 	
 	private void StartAnimations() {

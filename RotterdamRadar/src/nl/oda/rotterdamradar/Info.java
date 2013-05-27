@@ -17,7 +17,7 @@ public class Info extends Activity {
         tabHost.setup(); 
 
         
-        TabSpec specs2 = tabHost.newTabSpec("InfoApp");
+        TabSpec specs2 = tabHost.newTabSpec("infoApp");
         specs2.setIndicator("infoApp");
         specs2.setContent(R.id.infoApp);
         

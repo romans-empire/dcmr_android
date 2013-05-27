@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <!-- Name Label -->
+
+    <TextView
+        android:id="@+id/datum_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:textColor="#43bd00"
+        android:textSize="25dip"
+        android:textStyle="bold" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/gebruiker_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac"
+        android:textStyle="bold" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/userid_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/ingevoerddoor_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/terugkoppeling_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/overlast_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac"
+        android:textStyle="bold" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/aardoverlast_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/subaardoverlast_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/subsubaardoverlast_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/locatie_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac"
+        android:textStyle="bold" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/plaatsnaam_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/postcode_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/straatnaam_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/gpsdata_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+    <!-- Mooie label! -->
+
+    <TextView
+        android:id="@+id/image_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#acacac" />
+
+</LinearLayout>
