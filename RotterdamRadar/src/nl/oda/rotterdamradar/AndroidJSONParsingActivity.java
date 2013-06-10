@@ -35,7 +35,7 @@ public class AndroidJSONParsingActivity extends ListActivity {
 	private static final String TAG_AARDOVERLAST = "Aardoverlast";
 	private static final String TAG_SUBAARDOVERLAST = "SubaardOverlast";
 	private static final String TAG_SUBSUBAARDOVERLAST = "SubsubaardOverlast";
-	private static final String TAG_TERUGKOPPELINGGEVRAAGD = "TerugkoppellingGevraagd";
+	private static final String TAG_TERUGKOPPELINGGEVRAAGD = "TerugkoppelingGevraagd";
 	private static final String TAG_KLACHTID = "Id";
 	private static final String TAG_GPSDATA = "GPSData";
 	private static final String TAG_IMAGE = "Image";
