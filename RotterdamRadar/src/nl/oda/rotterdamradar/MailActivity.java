@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -76,6 +77,8 @@ public class MailActivity extends Activity implements OnClickListener,
 
 		final Button buttonSend = (Button) findViewById(R.id.buttonSend);
 		buttonSend.setOnClickListener(this);
+		
+		LoadPreferences();
 	}
 
 	public void onClick(View v) {
@@ -117,6 +120,13 @@ public class MailActivity extends Activity implements OnClickListener,
 			email.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(body));
 			email.setType("message/rfc822");
 			startActivityForResult(Intent.createChooser(email, "Richard"), 1);
+			 SavePreferences("MEM1", naamField.getText().toString());
+			 SavePreferences("MEM2", mailField.getText().toString());
+			 SavePreferences("MEM3", mobielField.getText().toString());
+			 SavePreferences("MEM4", postcodeField.getText().toString());
+			 SavePreferences("MEM5", woonplaatsField.getText().toString());
+			 SavePreferences("MEM6", straatnaamField.getText().toString());
+			   LoadPreferences();
 		}
 	}
 
@@ -145,4 +155,29 @@ public class MailActivity extends Activity implements OnClickListener,
 		// TODO Auto-generated method stub
 
 	}
+	
+
+	
+	private void SavePreferences(String key, String value){
+	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+	    SharedPreferences.Editor editor = sharedPreferences.edit();
+	    editor.putString(key, value);
+	    editor.commit();
+	   }
+	
+	private void LoadPreferences(){
+	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+	    String strSavedMem1 = sharedPreferences.getString("MEM1", "");
+	    String strSavedMem2 = sharedPreferences.getString("MEM2", "");
+	    String strSavedMem3 = sharedPreferences.getString("MEM3", "");
+	    String strSavedMem4 = sharedPreferences.getString("MEM4", "");
+	    String strSavedMem5 = sharedPreferences.getString("MEM5", "");
+	    String strSavedMem6 = sharedPreferences.getString("MEM6", "");
+	    naamField.setText(strSavedMem1);
+	    mailField.setText(strSavedMem2);
+	    mobielField.setText(strSavedMem3);
+	    postcodeField.setText(strSavedMem4);
+	    woonplaatsField.setText(strSavedMem5);
+	    straatnaamField.setText(strSavedMem6);
+	   }
 }
