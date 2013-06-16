@@ -49,20 +49,20 @@ public class mainmenu extends Activity {
 
 			}
 		});
-
-		button4.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Vibrate();
-				Intent x = new Intent(mainmenu.this, AndroidJSONParsingActivity.class);
-				startActivity(x);
-
-			}
-		});
-
+		
 		button3.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Vibrate();
 				Intent x = new Intent(mainmenu.this, MapActivity.class);
+				startActivity(x);
+
+			}
+		});
+		
+		button4.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Vibrate();
+				Intent x = new Intent(mainmenu.this, MainScreenActivity.class);
 				startActivity(x);
 
 			}

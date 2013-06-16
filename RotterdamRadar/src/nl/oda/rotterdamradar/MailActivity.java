@@ -97,7 +97,7 @@ public class MailActivity extends Activity implements OnClickListener,
 		} else if (subject.getSelectedItemPosition() == 0) {
 			Toast.makeText(MailActivity.this, "Vul het onderwerp in",
 					Toast.LENGTH_SHORT).show();
-		} else if (spinner1.getSelectedItemPosition() == 0) {
+		} else if (spinner2.getSelectedItemPosition() == 0) {
 			Toast.makeText(MailActivity.this, "Vul terugkoppeling in",
 					Toast.LENGTH_SHORT).show();
 		

@@ -2,131 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
-
-    <LinearLayout
+    android:orientation="vertical" >
+ 
+    <!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
+    <TextView
+        android:id="@+id/pid"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp" >
-
-        <!-- Name Label -->
-
-        <TextView
-            android:id="@+id/datum"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="2dp"
-            android:paddingTop="6dp"
-            android:textColor="#43bd00"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-        <!-- Description label -->
-
-        <TextView
-            android:id="@+id/straatnaam"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="2dp"
-            android:textColor="#acacac" >
-        </TextView>
-        <!-- Linear layout for cost and price Cost: Rs.100 -->
-
-        <TextView
-            android:id="@+id/aardoverlast"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="2dp"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/ingevoerddoor"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/aantal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/postcode"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/plaatsnaam"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/subaardoverlast"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/subsubaardoverlast"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/terugkoppelinggevraagd"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/klachtid"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/gpsdata"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-
-        <TextView
-            android:id="@+id/userid"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingBottom="0dip"
-            android:textColor="#acacac" >
-        </TextView>
-    </LinearLayout>
-
+        android:visibility="gone" />
+ 
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/nummer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/viewstatus"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold" />
+ 
 </LinearLayout>
