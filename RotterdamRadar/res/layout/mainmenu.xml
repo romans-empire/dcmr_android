@@ -182,7 +182,7 @@
                             android:layout_weight="1"
                             android:background="#ffffff"
                             android:gravity="center"
-                            android:text="bekijk hier uw klachten" />
+                            android:text="Open het klacht centrum" />
                     </LinearLayout>
                 </TableRow>
                 

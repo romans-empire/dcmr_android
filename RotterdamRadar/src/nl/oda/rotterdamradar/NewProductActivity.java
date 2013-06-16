@@ -10,6 +10,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,6 +86,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		terugkoppeling1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 		spinner2.setAdapter(terugkoppeling1);
 		;
+		
+		LoadPreferences();
 
 		// Create button
 		Button btnCreateProduct = (Button) findViewById(R.id.buttonSend);
@@ -96,6 +99,13 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 			public void onClick(View view) {
 				// creating new product in background thread
 				new CreateNewProduct().execute();
+				 SavePreferences("MEM1", Inaam.getText().toString());
+				 SavePreferences("MEM2", Imailadres.getText().toString());
+				 SavePreferences("MEM3", Itelefoonnummer.getText().toString());
+				 SavePreferences("MEM4", Ipostcode.getText().toString());
+				 SavePreferences("MEM5", Iwoonplaats.getText().toString());
+				 SavePreferences("MEM6", Istraatnaam.getText().toString());
+				   LoadPreferences();
 			}
 		});
 	}
@@ -117,6 +127,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 			pDialog.setCancelable(true);
 			pDialog.show();
 		}
+		
 
 		/**
 		 * Creating product
@@ -205,4 +216,26 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		// TODO Auto-generated method stub
 		
 	}
+	private void SavePreferences(String key, String value){
+	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+	    SharedPreferences.Editor editor = sharedPreferences.edit();
+	    editor.putString(key, value);
+	    editor.commit();
+	   }
+	
+	private void LoadPreferences(){
+	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+	    String strSavedMem1 = sharedPreferences.getString("MEM1", "");
+	    String strSavedMem2 = sharedPreferences.getString("MEM2", "");
+	    String strSavedMem3 = sharedPreferences.getString("MEM3", "");
+	    String strSavedMem4 = sharedPreferences.getString("MEM4", "");
+	    String strSavedMem5 = sharedPreferences.getString("MEM5", "");
+	    String strSavedMem6 = sharedPreferences.getString("MEM6", "");
+	    Inaam.setText(strSavedMem1);
+	    Imailadres.setText(strSavedMem2);
+	    Itelefoonnummer.setText(strSavedMem3);
+	    Ipostcode.setText(strSavedMem4);
+	    Iwoonplaats.setText(strSavedMem5);
+	    Istraatnaam.setText(strSavedMem6);
+	   }
 }
