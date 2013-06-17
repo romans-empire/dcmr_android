@@ -143,6 +143,40 @@
         android:background="#ffffff"
         android:prompt="@string/onderwerp2" />
     
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="waar is de klacht" />
+     
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="stad / dorp" />
+    
+    <EditText
+        android:id="@+id/locatiestad"
+        android:layout_width="213dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#000033"
+        android:inputType="textMultiLine" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="In welke straat" />
+    
+    <EditText
+        android:id="@+id/locatiestraat"
+        android:layout_width="213dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#000033"
+        android:inputType="textMultiLine" />
+     
 	<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

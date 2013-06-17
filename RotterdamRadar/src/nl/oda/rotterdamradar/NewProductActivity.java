@@ -27,7 +27,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 	private ProgressDialog pDialog;
 
 	JSONParser jsonParser = new JSONParser();
-	EditText Inaam, Itelefoonnummer, Imailadres, Ipostcode, Istraatnaam, Iwoonplaats, Iaardoverlast, Isubaard, Isubsubaard, Itoelichting, Iterugkoppeling;
+	EditText Inaam, Itelefoonnummer, Imailadres, Ipostcode, Istraatnaam, Iwoonplaats, Iaardoverlast, Isubaard, Isubsubaard, 
+	Istad, Istraat, Itoelichting, Iterugkoppeling;
 	Spinner subject, spinner, spinner1, spinner2;
 
 	// url to create new product
@@ -48,6 +49,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		Ipostcode = (EditText) findViewById(R.id.editPostcode);
 		Istraatnaam = (EditText) findViewById(R.id.editStraatnaam);
 		Iwoonplaats = (EditText) findViewById(R.id.editWoonplaats);
+		Istad = (EditText) findViewById(R.id.locatiestad);
+		Istraat = (EditText) findViewById(R.id.locatiestraat);
 		Itoelichting = (EditText) findViewById(R.id.toelichting);
 		
 		subject = (Spinner) findViewById(R.id.spinner);
@@ -142,6 +145,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 			String aardoverlast = subject.getSelectedItem().toString();
 			String subaard = spinner.getSelectedItem().toString();
 			String subsubaard = spinner1.getSelectedItem().toString();
+			String locatiestad = Istad.getText().toString();
+			String locatiestraat = Istraat.getText().toString();
 			String toelichtingg = Itoelichting.getText().toString();
 			String terugkoppeling = spinner2.getSelectedItem().toString();
 
@@ -156,6 +161,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 			params.add(new BasicNameValuePair("aardoverlast", aardoverlast));
 			params.add(new BasicNameValuePair("subaard", subaard));
 			params.add(new BasicNameValuePair("subsubaard", subsubaard));
+			params.add(new BasicNameValuePair("locatiestad", locatiestad));
+			params.add(new BasicNameValuePair("locatiestraat", locatiestraat));
 			params.add(new BasicNameValuePair("toelichting", toelichtingg));
 			params.add(new BasicNameValuePair("terugkoppeling", terugkoppeling));
 

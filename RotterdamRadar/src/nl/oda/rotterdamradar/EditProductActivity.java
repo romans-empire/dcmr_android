@@ -25,9 +25,9 @@ import android.widget.Spinner;
 
 public class EditProductActivity extends Activity implements OnItemSelectedListener {
 
-	EditText Inaam, Itelefoonnummer, Imailadres, Ipostcode, Istraatnaam, Iwoonplaats, Iviewkeus, Isubkeus, Isubsubkeus, Itoelichting, Istatus;
+	EditText Inaam, Itelefoonnummer, Imailadres, Ipostcode, Istraatnaam, Iwoonplaats, Iviewkeus, Isubkeus, Isubsubkeus, Ilocatiestad, Ilocatiestraat, Itoelichting, Istatus;
 	Button btnSave, btnDelete;
-	Spinner Iaardoverlast, Isubaard, Isubsubaard, Iterugkoppeling;
+	Spinner Iterugkoppeling;
 
 	String klachtid;
 
@@ -59,6 +59,8 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 	private static final String TAG_AARDOVERLAST = "aardoverlast";
 	private static final String TAG_SUBAARD = "subaard";
 	private static final String TAG_SUBSUBAARD = "subsubaard";
+	private static final String TAG_LOCATIESTAD = "locatiestad";
+	private static final String TAG_LOCATIESTRAAT = "locatiestraat";
 	private static final String TAG_TOELICHTING = "toelichting";
 	private static final String TAG_TERUGKOPPELING = "terugkoppeling";
 	private static final String TAG_KLACHTSTATUS = "klachtstatus";
@@ -83,34 +85,6 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 		
 		// getting product id (pid) from intent
 		klachtid = i.getStringExtra(TAG_KLACHTID);
-		
-		Iaardoverlast = (Spinner) findViewById(R.id.spinner);
-		String subjects[] = new String[] {"Selecteer", "afval", "bodem", "Stankoverlast", "Geluidsoverlast", "Stofoverlast", "Lichtoverlast" };
-		Iaardoverlast.setOnItemSelectedListener(this);
-		ArrayAdapter<String> sa = new ArrayAdapter<String>(this,
-				R.layout.spinner_item, subjects);
-		sa.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-		Iaardoverlast.setAdapter(sa);
-		;
-		
-
-		Isubaard = (Spinner) findViewById(R.id.spinner1);
-		String onderwerpen[] = new String[] {"Selecteer", "riool", "kassen", "rook", "vliegtuig", "fabriek", "muziek" };
-		Isubaard.setOnItemSelectedListener(this);
-		ArrayAdapter<String> subaard = new ArrayAdapter<String>(this,
-				R.layout.spinner_item, onderwerpen);
-		subaard.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-		Isubaard.setAdapter(subaard);
-		;
-		
-		Isubsubaard = (Spinner) findViewById(R.id.spinner2);
-		String subonderwerpen[] = new String[] {"Selecteer", "helicopter", "brandlucht", "DJ", "feest" };
-		Isubsubaard.setOnItemSelectedListener(this);
-		ArrayAdapter<String> subsubaard = new ArrayAdapter<String>(this,
-				R.layout.spinner_item, subonderwerpen);
-		subsubaard.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-		Isubsubaard.setAdapter(subsubaard);
-		;
 		
 		Iterugkoppeling = (Spinner) findViewById(R.id.spinner3);
 		String terugkoppeling[] = new String[] {"ja", "nee", };
@@ -207,6 +181,8 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 							Iviewkeus = (EditText) findViewById(R.id.viewkeus);
 							Isubkeus = (EditText) findViewById(R.id.viewsub);
 							Isubsubkeus = (EditText) findViewById(R.id.viewsubsub);
+							Ilocatiestad = (EditText) findViewById(R.id.kaas);
+							Ilocatiestraat = (EditText) findViewById(R.id.kaas2);
 							Itoelichting = (EditText) findViewById(R.id.toelichting);
 							Istatus = (EditText) findViewById(R.id.viewstatus);
 						
@@ -221,6 +197,8 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 							Iviewkeus.setText(klacht.getString(TAG_AARDOVERLAST));
 							Isubkeus.setText(klacht.getString(TAG_SUBAARD));
 							Isubsubkeus.setText(klacht.getString(TAG_SUBSUBAARD));
+							Ilocatiestad.setText(klacht.getString(TAG_LOCATIESTAD));
+							Ilocatiestraat.setText(klacht.getString(TAG_LOCATIESTRAAT));
 							Itoelichting.setText(klacht.getString(TAG_TOELICHTING));
 							Istatus.setText(klacht.getString(TAG_KLACHTSTATUS));
 
@@ -276,9 +254,8 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 			String postcode = Ipostcode.getText().toString();
 			String straatnaam = Istraatnaam.getText().toString();
 			String woonplaats = Iwoonplaats.getText().toString();
-			String aardoverlast = Iaardoverlast.getSelectedItem().toString();
-			String subaard = Isubaard.getSelectedItem().toString();
-			String subsubaard = Isubsubaard.getSelectedItem().toString();
+			String locatiestad = Ilocatiestad.getText().toString();
+			String locatiestraat = Ilocatiestraat.getText().toString();
 			String toelichting = Itoelichting.getText().toString();
 			String terugkoppeling = Iterugkoppeling.getSelectedItem().toString();
 
@@ -291,9 +268,8 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 			params.add(new BasicNameValuePair(TAG_POSTCODE, postcode));
 			params.add(new BasicNameValuePair(TAG_STRAATNAAM, straatnaam));
 			params.add(new BasicNameValuePair(TAG_WOONPLAATS, woonplaats));
-			params.add(new BasicNameValuePair(TAG_AARDOVERLAST, aardoverlast));
-			params.add(new BasicNameValuePair(TAG_SUBAARD, subaard));
-			params.add(new BasicNameValuePair(TAG_SUBSUBAARD, subsubaard));
+			params.add(new BasicNameValuePair(TAG_LOCATIESTAD, locatiestad));
+			params.add(new BasicNameValuePair(TAG_LOCATIESTRAAT, locatiestraat));
 			params.add(new BasicNameValuePair(TAG_TOELICHTING, toelichting));
 			params.add(new BasicNameValuePair(TAG_TERUGKOPPELING, terugkoppeling));
 			
