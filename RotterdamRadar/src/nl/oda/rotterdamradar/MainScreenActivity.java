@@ -9,8 +9,7 @@ import android.widget.Button;
 
 public class MainScreenActivity extends Activity{
 	
-	Button btnViewProducts;
-	Button btnNewProduct;
+	Button btnViewProducts, buttonklacht, buttonklacht2, btnNewProduct;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +19,8 @@ public class MainScreenActivity extends Activity{
 		// Buttons
 		btnViewProducts = (Button) findViewById(R.id.btnViewProducts);
 		btnNewProduct = (Button) findViewById(R.id.btnCreateProduct);
+		buttonklacht = (Button) findViewById(R.id.mijnklacht);
+		buttonklacht2 = (Button) findViewById(R.id.mijnklacht1);
 		
 		// view products click event
 		btnViewProducts.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,26 @@ public class MainScreenActivity extends Activity{
 			public void onClick(View view) {
 				// Launching create new product activity
 				Intent i = new Intent(getApplicationContext(), NewProductActivity.class);
+				startActivity(i);
+				
+			}
+		});
+		buttonklacht.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				// Launching All products Activity
+				Intent i = new Intent(getApplicationContext(), MijnKlacht.class);
+				startActivity(i);
+				
+			}
+		});
+		buttonklacht2.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				// Launching All products Activity
+				Intent i = new Intent(getApplicationContext(), MijnKlachten.class);
 				startActivity(i);
 				
 			}

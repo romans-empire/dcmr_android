@@ -127,6 +127,19 @@
             android:name=".MainScreenActivity"
             android:label="Klachten centrum" >
         </activity>
+         <activity
+            android:name=".MijnKlacht"
+            android:label="Mijn Klachten" >
+        </activity>
+        <activity
+            android:name=".MijnKlachten"
+            android:label="Mijn Klachten 2.0" >
+        </activity>
+        <activity
+            android:name=".ViewAlleKlachten"
+            android:label="alle klachten" >
+        </activity>
+
         android:debuggable="true"
     </application>
 

@@ -44,76 +44,7 @@
         <requestFocus />
     </EditText>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/mobiel"/>
-
-    <EditText
-        android:id="@+id/editTextMobiel"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="phone"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/mail"/>
-
-    <EditText
-        android:id="@+id/editTextMail"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:ems="10"
-        android:inputType="textEmailAddress"/>
-    
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/postcode" />
-    
-    <EditText
-        android:id="@+id/editPostcode"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/straatnaam" />
-    
-    <EditText
-        android:id="@+id/editStraatnaam"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/woonplaats" />
-    
-    <EditText
-        android:id="@+id/editWoonplaats"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
+   
 
     
      <TextView
@@ -180,35 +111,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="waar is de klacht" />
-     
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="stad / dorp" />
+        android:text="@string/toelichting" />
     
     <EditText
         android:id="@+id/kaas"
-        android:layout_width="213dp"
+        android:layout_width="219dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
-        android:textColor="#000033"
+        android:textColor="#000003"
         android:inputType="textMultiLine" />
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="In welke straat" />
+        android:text="@string/toelichting" />
     
     <EditText
         android:id="@+id/kaas2"
         android:layout_width="213dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="textMultiLine" />
+        android:textColor="#000003"
+        android:inputType="text" />
     
 
     <TextView
@@ -237,21 +162,7 @@
         android:layout_marginTop="5dp"
         android:textColor="#000033"
         android:inputType="text" />
-    
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginBottom="8dp"
-        android:text="update klacht" />
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_marginBottom="20dp"
-        android:text="verwijder deze klacht" />
+
     </LinearLayout>
 </ScrollView>
 </LinearLayout>

@@ -10,7 +10,7 @@
     <Button android:id="@+id/btnViewProducts"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Bekijk klachten"
+        android:text="Bekijk alle klachten"
         android:layout_marginTop="25dip"/>
  
     <!--  Button to create a new product screen -->
@@ -20,4 +20,15 @@
         android:text="Plaats een klacht"
         android:layout_marginTop="25dip"/>
  
+    <Button android:id="@+id/mijnklacht"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="check mijn IMEI nummer"
+        android:layout_marginTop="25dip"/>
+    
+    <Button android:id="@+id/mijnklacht1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Bekijk mijn klachten"
+        android:layout_marginTop="25dip"/>
 </LinearLayout>

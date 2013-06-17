@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,12 +37,16 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
+	
+	
+	
+	//public String MyPhoneNumber = tm.getDeviceId();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_product);
-
+		
 		// Edit Text
 		Inaam = (EditText) findViewById(R.id.editTekstNaam);
 		Itelefoonnummer = (EditText) findViewById(R.id.editTextMobiel);
@@ -136,6 +141,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		 * Creating product
 		 * *///create naam, telefoonnummer, mailadres, postcode, straatnaam, woonplaats, aardoverlast, subaard, subsubaard, toelichting, terugkoppeling;
 		protected String doInBackground(String... args) {
+			TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+			String MyIMEINumber = tm.getDeviceId();
 			String naam = Inaam.getText().toString();
 			String telefoonnummer = Itelefoonnummer.getText().toString();
 			String email = Imailadres.getText().toString();
@@ -152,6 +159,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("IMEI", MyIMEINumber));
 			params.add(new BasicNameValuePair("naam", naam));
 			params.add(new BasicNameValuePair("telefoonnummer", telefoonnummer));
 			params.add(new BasicNameValuePair("mailadres", email));
