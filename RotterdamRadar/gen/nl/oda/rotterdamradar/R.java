@@ -197,7 +197,7 @@ containing a value of this type.
         public static final int mainlo=0x7f05003a;
         public static final int map=0x7f050005;
         public static final int meldingedit=0x7f05003c;
-        public static final int menu_settings=0x7f050055;
+        public static final int menu_settings=0x7f05005d;
         public static final int mijnklacht=0x7f05002b;
         public static final int mijnklacht1=0x7f05002c;
         public static final int mijntelefoonnummer=0x7f050041;
@@ -228,6 +228,14 @@ containing a value of this type.
         public static final int terugkoppeling_label=0x7f050049;
         public static final int textViewMail=0x7f050034;
         public static final int textViewMap=0x7f050032;
+        public static final int textviewaard=0x7f050056;
+        public static final int textviewlocatiestad=0x7f050059;
+        public static final int textviewlocatiestraat=0x7f05005a;
+        public static final int textviewnaam=0x7f050055;
+        public static final int textviewstatus=0x7f05005c;
+        public static final int textviewsubaard=0x7f050057;
+        public static final int textviewsubsubaard=0x7f050058;
+        public static final int textviewtoelichting=0x7f05005b;
         public static final int toelichting=0x7f050011;
         public static final int txtDate=0x7f050043;
         public static final int txtDescription=0x7f050044;
@@ -260,6 +268,7 @@ containing a value of this type.
         public static final int spinner_item=0x7f030010;
         public static final int splashscreen=0x7f030011;
         public static final int viewklachten=0x7f030012;
+        public static final int viewsingleklacht=0x7f030013;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;

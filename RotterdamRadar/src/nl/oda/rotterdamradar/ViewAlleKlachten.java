@@ -1,50 +1,44 @@
 package nl.oda.rotterdamradar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class ViewAlleKlachten extends Activity implements OnItemSelectedListener {
-
-	EditText Inaam, Itelefoonnummer, Imailadres, Ipostcode, Istraatnaam, Iwoonplaats, Iviewkeus, Isubkeus, Isubsubkeus, Ilocatiestad, Ilocatiestraat, Itoelichting, Istatus;
-	TextView naam, telefoonnummer, mailadres, postcode, straatnaam, woonplaats, viewkeus, subkeus, subsubkeus, locatiestad, locatiestraat, toelichting, status;
-	Button btnSave, btnDelete;
-	Spinner Iterugkoppeling;
-
-	String klachtid;
+public class ViewAlleKlachten extends ListActivity {
 
 	// Progress Dialog
 	private ProgressDialog pDialog;
 
-	// JSON parser class
-	JSONParser jsonParser = new JSONParser();
+	// Creating JSON Parser object
+	JSONParser jParser = new JSONParser();
 
-	// single product url
-	private static final String url_product_details = "http://dcmr.stefanorie.com/klachten/get_all_product_details.php";
+	ArrayList<HashMap<String, String>> productsList;
 
+	// url to get all products list
+	private static String url_all_products = "http://dcmr.stefanorie.com/klachten/get_all_products.php";
 
+	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
-	private static final String TAG_KLACHT = "klachten";
+	private static final String TAG_KLACHTEN = "klachten";
 	private static final String TAG_KLACHTID = "klachtid";
 	private static final String TAG_NAAM = "naam";
 	private static final String TAG_TELEFOONNUMMER = "telefoonnummer";
@@ -55,51 +49,72 @@ public class ViewAlleKlachten extends Activity implements OnItemSelectedListener
 	private static final String TAG_AARDOVERLAST = "aardoverlast";
 	private static final String TAG_SUBAARD = "subaard";
 	private static final String TAG_SUBSUBAARD = "subsubaard";
-	private static final String TAG_LOCATIESTAD = "locatiestad";
-	private static final String TAG_LOCATIESTRAAT = "locatiestraat";
 	private static final String TAG_TOELICHTING = "toelichting";
 	private static final String TAG_TERUGKOPPELING = "terugkoppeling";
 	private static final String TAG_KLACHTSTATUS = "klachtstatus";
-
-
+	
+	
+	// products JSONArray
+	JSONArray klachten = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.viewklachten);
-		
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-		.permitAll().build();
-		StrictMode.setThreadPolicy(policy);
+		setContentView(R.layout.all_products);
 
-		// save button
-		btnSave = (Button) findViewById(R.id.edit);
-		btnDelete = (Button) findViewById(R.id.delete);
+		// Hashmap for ListView
+		productsList = new ArrayList<HashMap<String, String>>();
 
-		// getting product details from intent
-		Intent i = getIntent();
-		
-		// getting product id (pid) from intent
-		klachtid = i.getStringExtra(TAG_KLACHTID);
-		
-		Iterugkoppeling = (Spinner) findViewById(R.id.spinner3);
-		String terugkoppeling[] = new String[] {"ja", "nee", };
-		Iterugkoppeling.setOnItemSelectedListener(this);
-		ArrayAdapter<String> terugkoppeling1 = new ArrayAdapter<String>(this,
-				R.layout.spinner_item, terugkoppeling);
-		terugkoppeling1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-		Iterugkoppeling.setAdapter(terugkoppeling1);
-		;
+		// Loading products in Background Thread
+		new LoadAllProducts().execute();
 
-		// Getting complete product details in background thread
-		new GetProductDetails().execute();
+		// Get listview
+		ListView lv = getListView();
+
+		// on seleting single product
+		// launching Edit Product Screen
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// getting values from selected ListItem
+				String klachtid = ((TextView) view.findViewById(R.id.pid)).getText()
+						.toString();
+
+				// Starting new intent
+				Intent in = new Intent(getApplicationContext(),
+						ViewSingleKlacht.class);
+				// sending pid to next activity
+				in.putExtra(TAG_KLACHTID, klachtid);
+				
+				// starting new activity and expecting some response back
+				startActivityForResult(in, 100);
+			}
+		});
+
+	}
+
+	// Response from Edit Product Activity
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		// if result code 100
+		if (resultCode == 100) {
+			// if result code 100 is received 
+			// means user edited/deleted product
+			// reload this screen again
+			Intent intent = getIntent();
+			finish();
+			startActivity(intent);
+		}
 
 	}
 
 	/**
-	 * Background Async Task to Get complete product details
+	 * Background Async Task to Load all product by making HTTP Request
 	 * */
-	class GetProductDetails extends AsyncTask<String, String, String> {
+	class LoadAllProducts extends AsyncTask<String, String, String> {
 
 		/**
 		 * Before starting background thread Show Progress Dialog
@@ -108,114 +123,114 @@ public class ViewAlleKlachten extends Activity implements OnItemSelectedListener
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(ViewAlleKlachten.this);
-			pDialog.setMessage("Loading product details. Please wait...");
+			pDialog.setMessage("Loading products. Please wait...");
 			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(true);
+			pDialog.setCancelable(false);
 			pDialog.show();
 		}
 
 		/**
-		 * Getting product details in background thread
+		 * getting All products from url
 		 * */
-		protected String doInBackground(String... params) {
+		protected String doInBackground(String... args) {
+			// Building Parameters
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			// getting JSON string from URL
+			JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
+			
+			// Check your log cat for JSON reponse
+			Log.d("All Products: ", json.toString());
 
-			// updating UI from Background Thread
-			runOnUiThread(new Runnable() {
-				public void run() {
-					// Check for success tag
-					int success;
-					try {
-						// Building Parameters
-						List<NameValuePair> params = new ArrayList<NameValuePair>();
-						params.add(new BasicNameValuePair("klachtid", klachtid));
+			try {
+				// Checking for SUCCESS TAG
+				int success = json.getInt(TAG_SUCCESS);
 
-						// getting product details by making HTTP request
-						// Note that product details url will use GET request
-						JSONObject json = jsonParser.makeHttpRequest(
-								url_product_details, "GET", params);
+				if (success == 1){
+				//if (success == 1 && getMy10DigitPhoneNumber() == TAG_TELEFOONNUMMER) {
+					// products found
+					// Getting Array of Products
+					klachten = json.getJSONArray(TAG_KLACHTEN);
 
-						// check your log for json response
-						Log.d("Single Product Details", json.toString());
+					// looping through All Products
+					for (int i = 0; i < klachten.length(); i++) {
+						JSONObject c = klachten.getJSONObject(i);
+
+						// Storing each json item in variable
+						String klachtid = c.getString(TAG_KLACHTID);
+						String naam = c.getString(TAG_NAAM);
+						String telefoonnummer = c.getString(TAG_TELEFOONNUMMER);
+						String mailadres = c.getString(TAG_MAILADRES);
+						String postcode = c.getString(TAG_POSTCODE);
+						String straatnaam = c.getString(TAG_STRAATNAAM);
+						String woonplaats = c.getString(TAG_WOONPLAATS);
+						String aardoverlast = c.getString(TAG_AARDOVERLAST);
+						String subaard = c.getString(TAG_SUBAARD);
+						String subsubaard = c.getString(TAG_SUBSUBAARD);
+						String toelichting = c.getString(TAG_TOELICHTING);
+						String terugkoppeling = c.getString(TAG_TERUGKOPPELING);
+						String klachtstatus = c.getString(TAG_KLACHTSTATUS);
 						
-						// json success tag
-						success = json.getInt(TAG_SUCCESS);
-						if (success == 1) {
-							// successfully received product details
-							JSONArray productObj = json.getJSONArray(TAG_KLACHT); // JSON Array
-							
-							// get first product object from JSON Array
-							JSONObject klacht = productObj.getJSONObject(0);
 
-							// product with this pid found
-							// Edit Text
-							naam = (TextView) findViewById(R.id.editTekstNaam);
-							telefoonnummer = (EditText) findViewById(R.id.editTextMobiel);
-							mailadres = (EditText) findViewById(R.id.editTextMail);
-							postcode = (EditText) findViewById(R.id.editPostcode);
-							straatnaam = (EditText) findViewById(R.id.editStraatnaam);
-							woonplaats = (EditText) findViewById(R.id.editWoonplaats);
-							viewkeus = (TextView) findViewById(R.id.viewkeus);
-							subkeus = (TextView) findViewById(R.id.viewsub);
-							subsubkeus = (TextView) findViewById(R.id.viewsubsub);
-							locatiestad = (TextView) findViewById(R.id.kaas);
-							locatiestraat = (TextView) findViewById(R.id.kaas2);
-							toelichting = (TextView) findViewById(R.id.toelichting);
-							status = (TextView) findViewById(R.id.viewstatus);
-							
-							
-							// display product data in EditText
-							naam.setText(klacht.getString(TAG_NAAM));
-							viewkeus.setText(klacht.getString(TAG_AARDOVERLAST));
-							subkeus.setText(klacht.getString(TAG_SUBAARD));
-							subsubkeus.setText(klacht.getString(TAG_SUBSUBAARD));
-							locatiestad.setText(klacht.getString(TAG_LOCATIESTAD));
-							locatiestraat.setText(klacht.getString(TAG_LOCATIESTRAAT));
-							toelichting.setText(klacht.getString(TAG_TOELICHTING));
-							status.setText(klacht.getString(TAG_KLACHTSTATUS));
+						// creating new HashMap
+						HashMap<String, String> map = new HashMap<String, String>();
 
-						}else{
-							// product with pid not found
-						}
-					} catch (JSONException e) {
-						e.printStackTrace();
+						// adding each child node to HashMap key => value
+						map.put(TAG_KLACHTID, klachtid);
+						map.put(TAG_NAAM, naam);
+						map.put(TAG_TELEFOONNUMMER, telefoonnummer);
+						map.put(TAG_MAILADRES, mailadres);
+						map.put(TAG_POSTCODE, postcode);
+						map.put(TAG_STRAATNAAM, straatnaam);
+						map.put(TAG_WOONPLAATS, woonplaats);
+						map.put(TAG_AARDOVERLAST, aardoverlast);
+						map.put(TAG_SUBAARD, subaard);
+						map.put(TAG_SUBSUBAARD, subsubaard);
+						map.put(TAG_TOELICHTING, toelichting);
+						map.put(TAG_TERUGKOPPELING, terugkoppeling);
+						map.put(TAG_KLACHTSTATUS, klachtstatus);
+
+
+						// adding HashList to ArrayList
+						productsList.add(map);
 					}
+				} else {
+					// no products found
+					// Launch Add New product Activity
+					Intent i = new Intent(getApplicationContext(),
+							NewProductActivity.class);
+					// Closing all previous activities
+					i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
 				}
-			});
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 
 			return null;
 		}
 
-
 		/**
 		 * After completing background task Dismiss the progress dialog
 		 * **/
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once got all details
+			// dismiss the dialog after getting all products
 			pDialog.dismiss();
+			// updating UI from Background Thread
+			runOnUiThread(new Runnable() {
+				public void run() {
+					/**
+					 * Updating parsed JSON data into ListView
+					 * */
+					ListAdapter adapter = new SimpleAdapter(
+							ViewAlleKlachten.this, productsList,
+							R.layout.list_item, new String[] { TAG_KLACHTID, TAG_NAAM, TAG_TELEFOONNUMMER, TAG_KLACHTSTATUS},
+							new int[] { R.id.pid, R.id.name, R.id.nummer, R.id.viewstatus });
+					// updating listview
+					setListAdapter(adapter);
+				}
+			});
+
 		}
-	}
 
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
-		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once product deleted
-			pDialog.dismiss();
-
-		}
-
-	
-
-	@Override
-	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-			long arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }

@@ -139,6 +139,11 @@
             android:name=".ViewAlleKlachten"
             android:label="alle klachten" >
         </activity>
+        <activity
+            android:name=".ViewSingleKlacht"
+            android:label="een klacht" >
+        </activity>
+        
 
         android:debuggable="true"
     </application>

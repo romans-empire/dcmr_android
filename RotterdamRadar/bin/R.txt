@@ -74,7 +74,7 @@ int id logo 0x7f05002d
 int id mainlo 0x7f05003a
 int id map 0x7f050005
 int id meldingedit 0x7f05003c
-int id menu_settings 0x7f050055
+int id menu_settings 0x7f05005d
 int id mijnklacht 0x7f05002b
 int id mijnklacht1 0x7f05002c
 int id mijntelefoonnummer 0x7f050041
@@ -105,6 +105,14 @@ int id terrain 0x7f050003
 int id terugkoppeling_label 0x7f050049
 int id textViewMail 0x7f050034
 int id textViewMap 0x7f050032
+int id textviewaard 0x7f050056
+int id textviewlocatiestad 0x7f050059
+int id textviewlocatiestraat 0x7f05005a
+int id textviewnaam 0x7f050055
+int id textviewstatus 0x7f05005c
+int id textviewsubaard 0x7f050057
+int id textviewsubsubaard 0x7f050058
+int id textviewtoelichting 0x7f05005b
 int id toelichting 0x7f050011
 int id txtDate 0x7f050043
 int id txtDescription 0x7f050044
@@ -135,6 +143,7 @@ int layout single_list_item 0x7f03000f
 int layout spinner_item 0x7f030010
 int layout splashscreen 0x7f030011
 int layout viewklachten 0x7f030012
+int layout viewsingleklacht 0x7f030013
 int menu activity_main 0x7f090000
 int string app_name 0x7f060011
 int string appinfo 0x7f060026

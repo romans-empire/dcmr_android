@@ -10,7 +10,7 @@
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:fillViewport="true" >
-    <LinearLayout
+  <LinearLayout
         android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
         android:layout_marginBottom="10dp"
@@ -20,6 +20,7 @@
         android:orientation="vertical">
 
     <TextView
+        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,141 +28,71 @@
         android:textColor="#000000"/>
 
     <TextView
+        android:id="@+id/textviewnaam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textColor="#000033"
         android:text="@string/naam" />
 
-    <EditText
-        android:id="@+id/editTekstNaam"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:textColor="#000033"
-        android:inputType="textPersonName" >
-        <requestFocus />
-    </EditText>
 
    
 
     
      <TextView
+        android:id="@+id/textviewaard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="Hieronder ziet u de aard van de door u ingevulde overlast" />
-    
-    <EditText
-        android:id="@+id/viewkeus"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
-    
+
     
     
     <TextView
+        android:id="@+id/textviewsubaard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="Hieronder ziet u de sub aard van de door u ingevulde overlast" />
     
-    <EditText
-        android:id="@+id/viewsub"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
-    
-    
-     
      <TextView
+         android:id="@+id/textviewsubsubaard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="Hieronder ziet u de sub sub aard van de door u ingevulde overlast" />
+    
+     <TextView
+	    android:id="@+id/textviewlocatiestad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="@string/toelichting" />
      
-     <EditText
-        android:id="@+id/viewsubsub"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
-    
+     <TextView
+	    android:id="@+id/textviewlocatiestraat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="@string/toelichting" />
+     
 	<TextView
+	    android:id="@+id/textviewtoelichting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="@string/toelichting" />
-    
-    <EditText
-        android:id="@+id/toelichting"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="textMultiLine" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/toelichting" />
-    
-    <EditText
-        android:id="@+id/kaas"
-        android:layout_width="219dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000003"
-        android:inputType="textMultiLine" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/toelichting" />
-    
-    <EditText
-        android:id="@+id/kaas2"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000003"
-        android:inputType="text" />
     
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="@string/terugkoppeling" />
-    
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:prompt="@string/onderwerp3" />
+
     
     <TextView
+        android:id="@+id/textviewstatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="Bekijk de voortgang van uw klacht" />
     
-    <EditText
-        android:id="@+id/viewstatus"
-        android:layout_width="213dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#000033"
-        android:inputType="text" />
 
     </LinearLayout>
 </ScrollView>
