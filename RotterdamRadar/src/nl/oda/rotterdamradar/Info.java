@@ -25,9 +25,13 @@ public class Info extends Activity {
         specs1.setIndicator("infoDCMR");
         specs1.setContent(R.id.infoDCMR);
        
+        TabSpec specs3 = tabHost.newTabSpec("Gebruik app");
+        specs3.setIndicator("Gebruik app");
+        specs3.setContent(R.id.appgebruik);
         
         tabHost.addTab(specs1);
         tabHost.addTab(specs2);
+        tabHost.addTab(specs3);
       
     }
 }

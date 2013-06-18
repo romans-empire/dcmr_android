@@ -54,6 +54,7 @@ public class MijnKlachten extends ListActivity {
 	private static final String TAG_TOELICHTING = "toelichting";
 	private static final String TAG_TERUGKOPPELING = "terugkoppeling";
 	private static final String TAG_KLACHTSTATUS = "klachtstatus";
+	private static final String TAG_CREATED_AT = "created_at";
 
 	// products JSONArray
 	JSONArray klachten = null;
@@ -179,6 +180,7 @@ public class MijnKlachten extends ListActivity {
 						String toelichting = c.getString(TAG_TOELICHTING);
 						String terugkoppeling = c.getString(TAG_TERUGKOPPELING);
 						String klachtstatus = c.getString(TAG_KLACHTSTATUS);
+						String created_at = c.getString(TAG_CREATED_AT);
 						if (MyIMEINumber.equals(imei)){
 
 						// creating new HashMap
@@ -199,6 +201,7 @@ public class MijnKlachten extends ListActivity {
 						map.put(TAG_TOELICHTING, toelichting);
 						map.put(TAG_TERUGKOPPELING, terugkoppeling);
 						map.put(TAG_KLACHTSTATUS, klachtstatus);
+						map.put(TAG_CREATED_AT, created_at);
 						
 						
 						productsList.add(map);
@@ -240,8 +243,8 @@ public class MijnKlachten extends ListActivity {
 					 * */
 					ListAdapter adapter = new SimpleAdapter(
 							MijnKlachten.this, productsList,
-							R.layout.list_item, new String[] { TAG_KLACHTID, TAG_NAAM, TAG_TELEFOONNUMMER, TAG_KLACHTSTATUS},
-							new int[] { R.id.pid, R.id.name, R.id.nummer, R.id.viewstatus });
+							R.layout.list_item, new String[] { TAG_KLACHTID, TAG_NAAM, TAG_CREATED_AT, TAG_KLACHTSTATUS},
+							new int[] { R.id.pid, R.id.name, R.id.created_at, R.id.viewstatus });
 					// updating listview
 					setListAdapter(adapter);
 				}

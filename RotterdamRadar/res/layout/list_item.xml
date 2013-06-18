@@ -22,7 +22,7 @@
         android:textStyle="bold" />
     
     <TextView
-        android:id="@+id/nummer"
+        android:id="@+id/created_at"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingTop="6dip"
