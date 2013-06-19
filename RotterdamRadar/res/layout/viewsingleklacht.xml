@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/contact"
+        android:text="Bekijk deze klacht"
         android:textColor="#000000"/>
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textColor="#000033"
-        android:text="@string/naam" />
+        android:text="Naam van de klager" />
 
     <EditText
         android:id="@+id/editTekstNaam"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/mobiel"/>
+        android:text="telefoonnummer, Dit is onzichtbaar voor privacy"/>
 
     <EditText
         android:id="@+id/editTextMobiel"
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/mail"/>
+        android:text="Mailadres, Dit is onzichtbaar voor privacy"/>
 
     <EditText
         android:id="@+id/editTextMail"
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/postcode" />
+        android:text="Postcode, Dit is onzichtbaar voor privacy" />
     
     <EditText
         android:id="@+id/editPostcode"
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/straatnaam" />
+        android:text="Straatnaam, Dit is onzichtbaar voor privacy" />
     
     <EditText
         android:id="@+id/editStraatnaam"
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/woonplaats" />
+        android:text="Woonplaats, Dit is onzichtbaar voor privacy" />
     
     <EditText
         android:id="@+id/editWoonplaats"
@@ -120,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="Hieronder ziet u de aard van de door u ingevulde overlast" />
+        android:text="Hieronder ziet u de aard van de ingevulde overlast" />
     
     <EditText
         android:id="@+id/viewkeus"
@@ -136,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="Hieronder ziet u de sub aard van de door u ingevulde overlast" />
+        android:text="Hieronder ziet u de sub aard van de ingevulde overlast" />
     
     <EditText
         android:id="@+id/viewsub"
@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="Hieronder ziet u de sub sub aard van de door u ingevulde overlast" />
+        android:text="Hieronder ziet u de sub sub aard van de ingevulde overlast" />
      
      <EditText
         android:id="@+id/viewsubsub"
@@ -180,13 +180,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="waar is de klacht" />
+        android:text="Locatie van de klacht" />
      
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="stad / dorp" />
+        android:text="In welke stad/dorp is de klacht?" />
     
     <EditText
         android:id="@+id/kaas"
@@ -200,7 +200,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="In welke straat" />
+        android:text="In welke straat?" />
     
     <EditText
         android:id="@+id/kaas2"
@@ -228,7 +228,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="Bekijk de voortgang van uw klacht" />
+        android:text="Bekijk de voortgang van de klacht" />
     
     <EditText
         android:id="@+id/viewstatus"
@@ -236,6 +236,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:textColor="#000033"
+        android:layout_marginBottom="25dp"
         android:inputType="text" />
     
     </LinearLayout>

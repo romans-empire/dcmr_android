@@ -26,8 +26,10 @@ public class MijnKlacht extends Activity
 					@Override
 					public void onClick(View arg0) {
 						
+						//haal het imei nummer op
 						TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 						try{
+						//laat het imei nummer zien in de textbox
 						telefoonnummer = (EditText) findViewById(R.id.mijntelefoonnummer);
 						String MyPhoneNumber = tm.getDeviceId();
 						telefoonnummer.setText("IMEI: " + MyPhoneNumber);

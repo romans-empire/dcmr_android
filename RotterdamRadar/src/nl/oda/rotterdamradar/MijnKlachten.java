@@ -34,7 +34,7 @@ public class MijnKlachten extends ListActivity {
 
 	ArrayList<HashMap<String, String>> productsList;
 
-	// url to get all products list
+	// url to get all klachten list
 	private static String url_all_products = "http://dcmr.stefanorie.com/klachten/get_all_myproducts.php";
 
 	// JSON Node names
@@ -155,8 +155,6 @@ public class MijnKlachten extends ListActivity {
 				//String IMEI = TAG_IMEI;
 				
 				if (success == 1){
-				//if (success == 1 && MyIMEINumber == IMEI){
-				//if (success == 1 && MyIMEINumber == TAG_IMEI) {
 					// products found
 					// Getting Array of Products
 					klachten = json.getJSONArray(TAG_KLACHTEN);

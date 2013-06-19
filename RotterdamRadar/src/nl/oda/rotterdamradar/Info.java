@@ -16,7 +16,7 @@ public class Info extends Activity {
         TabHost tabHost = (TabHost) findViewById (R.id.tabhost);
         tabHost.setup(); 
 
-        
+        //tabbladen in de activity
         TabSpec specs2 = tabHost.newTabSpec("infoApp");
         specs2.setIndicator("infoApp");
         specs2.setContent(R.id.infoApp);

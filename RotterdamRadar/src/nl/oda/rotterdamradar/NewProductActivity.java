@@ -37,17 +37,13 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
-	
-	
-	
-	//public String MyPhoneNumber = tm.getDeviceId();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_product);
 		
-		// Edit Text
+		// text fields
 		Inaam = (EditText) findViewById(R.id.editTekstNaam);
 		Itelefoonnummer = (EditText) findViewById(R.id.editTextMobiel);
 		Imailadres = (EditText) findViewById(R.id.editTextMail);
@@ -58,6 +54,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		Istraat = (EditText) findViewById(R.id.locatiestraat);
 		Itoelichting = (EditText) findViewById(R.id.toelichting);
 		
+		//spinners waar je onderwerpen kan selecteren
 		subject = (Spinner) findViewById(R.id.spinner);
 		String subjects[] = new String[] {"Aard van de overlast", "afval", "bodem", "Stankoverlast", "Geluidsoverlast", "Stofoverlast", "Lichtoverlast" };
 		subject.setOnItemSelectedListener(this);
@@ -102,10 +99,25 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 		// button click event
 		btnCreateProduct.setOnClickListener(new View.OnClickListener() {
-
+			
 			@Override
 			public void onClick(View view) {
-				// creating new product in background thread
+				//checken of velden leeg zijn
+				if (Inaam.getText().toString().length() == 0) {
+					Inaam.setError("Vul uw naam in");
+				} else if (Imailadres.getText().toString().length() == 0) {
+					Imailadres.setError("Vul uw email in");
+				} else if (Istraatnaam.getText().toString().length() == 0){
+					Istraatnaam.setError("Vul straatnaam in");
+				} else if (Iwoonplaats.getText().toString().length() == 0){
+					Iwoonplaats.setError("Vul woonplaats in");
+				} else if (Itelefoonnummer.getText().toString().length() != 10) {
+					Itelefoonnummer.setError("Vul een geldig telefoonnummer in");
+				} else if (Ipostcode.getText().toString().length() == 0) {
+					Ipostcode.setError("Vul een postcode in");
+				}
+				else{
+				// creating new klacht in background thread
 				new CreateNewProduct().execute();
 				 SavePreferences("MEM1", Inaam.getText().toString());
 				 SavePreferences("MEM2", Imailadres.getText().toString());
@@ -114,6 +126,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 				 SavePreferences("MEM5", Iwoonplaats.getText().toString());
 				 SavePreferences("MEM6", Istraatnaam.getText().toString());
 				   LoadPreferences();
+				}
 			}
 		});
 	}
@@ -139,7 +152,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 		/**
 		 * Creating product
-		 * *///create naam, telefoonnummer, mailadres, postcode, straatnaam, woonplaats, aardoverlast, subaard, subsubaard, toelichting, terugkoppeling;
+		 * */
 		protected String doInBackground(String... args) {
 			TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 			String MyIMEINumber = tm.getDeviceId();
@@ -231,6 +244,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		// TODO Auto-generated method stub
 		
 	}
+	//sla de velden op
 	private void SavePreferences(String key, String value){
 	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 	    SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -239,6 +253,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 	   }
 	
 	private void LoadPreferences(){
+		//gegevens van gebruikers opslaan in lokaal geheugen
 	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 	    String strSavedMem1 = sharedPreferences.getString("MEM1", "");
 	    String strSavedMem2 = sharedPreferences.getString("MEM2", "");

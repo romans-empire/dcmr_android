@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
  
+//nieuws class
 public class Nieuws extends ListActivity {
     private ArrayList<RSSItem> itemlist = null;
     private RSSListAdaptor rssadaptor = null;
@@ -76,6 +77,7 @@ private class RetrieveRSSFeeds extends AsyncTask<Void, Void, Void>
     private ProgressDialog progress = null;
      
             @Override
+            //haal het nieuws van de dcmr website
             protected Void doInBackground(Void... params) {
                     retrieveRSSFeed("http://www.dcmr.nl/rss/nl/nieuws",itemlist);
                      
@@ -92,7 +94,7 @@ private class RetrieveRSSFeeds extends AsyncTask<Void, Void, Void>
             @Override
             protected void onPreExecute() {
                     progress = ProgressDialog.show(
-                            Nieuws.this, null, "Loading RSS Feeds...");
+                            Nieuws.this, null, "Laad het nieuws...");
                      
                     super.onPreExecute();
             }

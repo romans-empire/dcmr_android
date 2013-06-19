@@ -124,7 +124,7 @@ public class AllProductsActivity extends ListActivity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(AllProductsActivity.this);
-			pDialog.setMessage("Loading products. Please wait...");
+			pDialog.setMessage("Wacht a.u.b. tot de klachten geladen zijn");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
@@ -147,9 +147,8 @@ public class AllProductsActivity extends ListActivity {
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1){
-				//if (success == 1 && getMy10DigitPhoneNumber() == TAG_TELEFOONNUMMER) {
-					// products found
-					// Getting Array of Products
+					// klachten gevonden
+					// Getting Array of Klachten
 					klachten = json.getJSONArray(TAG_KLACHTEN);
 
 					// looping through All Products
@@ -197,7 +196,7 @@ public class AllProductsActivity extends ListActivity {
 						productsList.add(map);
 					}
 				} else {
-					// no products found
+					// no klachten found
 					// Launch Add New product Activity
 					Intent i = new Intent(getApplicationContext(),
 							NewProductActivity.class);

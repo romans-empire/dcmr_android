@@ -28,6 +28,7 @@ public class MailActivity extends Activity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact);
 
+		//fields
 		naamField = (EditText) findViewById(R.id.editTekstNaam);
 		mailField = (EditText) findViewById(R.id.editTextMail);
 		mobielField = (EditText) findViewById(R.id.editTextMobiel);
@@ -35,9 +36,8 @@ public class MailActivity extends Activity implements OnClickListener,
 		postcodeField = (EditText) findViewById(R.id.editPostcode);
 		straatnaamField = (EditText) findViewById(R.id.editStraatnaam);
 		woonplaatsField = (EditText) findViewById(R.id.editWoonplaats);
-		//subtoelichtingField = (EditText) findViewById(R.id.subtoelichting);
-		//terugkoppelingField = (EditText) findViewById(R.id.terugkoppeling);
 
+		//spinners waar je verschillende dingen kan selecteren
 		subject = (Spinner) findViewById(R.id.spinner);
 		String subjects[] = new String[] { "Hoofd Overlast", "afval", "bodem", "Stankoverlast", "Geluidsoverlast", "Stofoverlast", "Lichtoverlast" };
 		subject.setOnItemSelectedListener(this);
@@ -82,6 +82,7 @@ public class MailActivity extends Activity implements OnClickListener,
 	}
 
 	public void onClick(View v) {
+		//checken of velden leeg zijn
 		if (naamField.getText().toString().length() == 0) {
 			naamField.setError("Vul uw naam in");
 		} else if (mailField.getText().toString().length() == 0) {
@@ -102,6 +103,7 @@ public class MailActivity extends Activity implements OnClickListener,
 					Toast.LENGTH_SHORT).show();
 		
 		} else {
+			//alles in de mail gooien
 			String body = "Name : " + naamField.getText().toString()
 					+ "<br>Mobile :" + mobielField.getText().toString()
 					+ "<br>Email :" + mailField.getText().toString()
@@ -166,6 +168,7 @@ public class MailActivity extends Activity implements OnClickListener,
 	   }
 	
 	private void LoadPreferences(){
+		//gegevens opslaan in geheugen
 	    SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 	    String strSavedMem1 = sharedPreferences.getString("MEM1", "");
 	    String strSavedMem2 = sharedPreferences.getString("MEM2", "");

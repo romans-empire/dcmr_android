@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/contact"
+        android:text="Overzicht persoonlijke gegevens"
+        android:textStyle="bold"
         android:textColor="#000000"/>
 
     <TextView
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textColor="#000033"
-        android:text="@string/naam" />
+        android:text="Uw naam" />
 
     <EditText
         android:id="@+id/editTekstNaam"
@@ -48,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/mobiel"/>
+        android:text="Uw telefoonnummer"/>
 
     <EditText
         android:id="@+id/editTextMobiel"
@@ -62,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/mail"/>
+        android:text="Uw mailadres"/>
 
     <EditText
         android:id="@+id/editTextMail"
@@ -77,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/postcode" />
+        android:text="Uw postcode" />
     
     <EditText
         android:id="@+id/editPostcode"
@@ -91,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/straatnaam" />
+        android:text="Uw straatnaam" />
     
     <EditText
         android:id="@+id/editStraatnaam"
@@ -105,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/woonplaats" />
+        android:text="Uw woonplaats" />
     
     <EditText
         android:id="@+id/editWoonplaats"
@@ -115,6 +116,12 @@
         android:textColor="#000033"
         android:inputType="text" />
 
+         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textStyle="bold"        
+        android:text="Overzicht klacht gegevens" />
     
      <TextView
         android:layout_width="wrap_content"
@@ -166,7 +173,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="@string/toelichting" />
+        android:text="Uw toelichting" />
     
     <EditText
         android:id="@+id/toelichting"
@@ -176,17 +183,14 @@
         android:textColor="#000033"
         android:inputType="textMultiLine" />
     
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="waar is de klacht" />
+
+    
      
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:text="stad / dorp" />
+        android:text="In welke stad/dorp " />
     
     <EditText
         android:id="@+id/kaas"

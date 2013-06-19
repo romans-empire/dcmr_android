@@ -86,6 +86,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 		// getting product id (pid) from intent
 		klachtid = i.getStringExtra(TAG_KLACHTID);
 		
+		//spinner laden
 		Iterugkoppeling = (Spinner) findViewById(R.id.spinner3);
 		String terugkoppeling[] = new String[] {"ja", "nee", };
 		Iterugkoppeling.setOnItemSelectedListener(this);
@@ -132,7 +133,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(EditProductActivity.this);
-			pDialog.setMessage("Loading product details. Please wait...");
+			pDialog.setMessage("Wacht a.u.b. totdat de details geladen zijn.");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
@@ -154,23 +155,23 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 						params.add(new BasicNameValuePair("klachtid", klachtid));
 
 						// getting product details by making HTTP request
-						// Note that product details url will use GET request
+						// Note that klacht details url will use GET request
 						JSONObject json = jsonParser.makeHttpRequest(
 								url_product_details, "GET", params);
 
 						// check your log for json response
-						Log.d("Single Product Details", json.toString());
+						Log.d("Single klacht Details", json.toString());
 						
 						// json success tag
 						success = json.getInt(TAG_SUCCESS);
 						if (success == 1) {
-							// successfully received product details
+							// successfully received klacht details
 							JSONArray productObj = json.getJSONArray(TAG_KLACHT); // JSON Array
 							
-							// get first product object from JSON Array
+							// get first klacht object from JSON Array
 							JSONObject klacht = productObj.getJSONObject(0);
 
-							// product with this pid found
+							// klacht with this klachtid found
 							// Edit Text
 							Inaam = (EditText) findViewById(R.id.editTekstNaam);
 							Itelefoonnummer = (EditText) findViewById(R.id.editTextMobiel);
@@ -187,7 +188,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 							Istatus = (EditText) findViewById(R.id.viewstatus);
 						
 
-							// display product data in EditText
+							// display klacht data in EditText
 							Inaam.setText(klacht.getString(TAG_NAAM));
 							Itelefoonnummer.setText(klacht.getString(TAG_TELEFOONNUMMER));
 							Imailadres.setText(klacht.getString(TAG_MAILADRES));
@@ -203,7 +204,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 							Istatus.setText(klacht.getString(TAG_KLACHTSTATUS));
 
 						}else{
-							// product with pid not found
+							// klacht with klachtid not found
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
@@ -236,7 +237,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(EditProductActivity.this);
-			pDialog.setMessage("Saving product ...");
+			pDialog.setMessage("Klacht opslaan...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
@@ -320,7 +321,7 @@ public class EditProductActivity extends Activity implements OnItemSelectedListe
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(EditProductActivity.this);
-			pDialog.setMessage("Deleting Product...");
+			pDialog.setMessage("verwijder klacht...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();

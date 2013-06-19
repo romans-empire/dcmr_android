@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -32,6 +31,7 @@ public class mainmenu extends Activity {
 		ImageButton button5 = (ImageButton) findViewById(R.id.button5);
 		ImageButton button6 = (ImageButton) findViewById(R.id.button6);		
 		
+		//mooie knoppen
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Vibrate();
@@ -77,6 +77,7 @@ public class mainmenu extends Activity {
 			}
 		});
 		
+		//de share knop
 		button6.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 
@@ -99,6 +100,7 @@ public class mainmenu extends Activity {
 		myVib.vibrate(50);
 	}
 	
+	//animatie
 	private void StartAnimations() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.fadein);
         anim.reset();

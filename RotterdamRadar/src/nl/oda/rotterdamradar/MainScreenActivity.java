@@ -27,7 +27,7 @@ public class MainScreenActivity extends Activity{
 			
 			@Override
 			public void onClick(View view) {
-				// Launching All products Activity
+				// Launching All klachten Activity
 				Intent i = new Intent(getApplicationContext(), ViewAlleKlachten.class);
 				startActivity(i);
 				
@@ -39,7 +39,7 @@ public class MainScreenActivity extends Activity{
 			
 			@Override
 			public void onClick(View view) {
-				// Launching create new product activity
+				// Launching create new klacht activity
 				Intent i = new Intent(getApplicationContext(), NewProductActivity.class);
 				startActivity(i);
 				
@@ -49,7 +49,7 @@ public class MainScreenActivity extends Activity{
 			
 			@Override
 			public void onClick(View view) {
-				// Launching All products Activity
+				// Launching imei checker
 				Intent i = new Intent(getApplicationContext(), MijnKlacht.class);
 				startActivity(i);
 				
@@ -59,7 +59,7 @@ public class MainScreenActivity extends Activity{
 			
 			@Override
 			public void onClick(View view) {
-				// Launching All products Activity
+				// Launching mijn klachten
 				Intent i = new Intent(getApplicationContext(), MijnKlachten.class);
 				startActivity(i);
 				
