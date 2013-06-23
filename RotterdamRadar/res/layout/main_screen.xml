@@ -1,36 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res/nl.oda.rotterdamradar"
+    android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
- 
-    <!--  Sample Dashboard screen with Two buttons -->
-    <!--  Button to view all klachten screen -->
-    <Button android:id="@+id/btnViewProducts"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Bekijk alle klachten"
-        android:layout_marginTop="25dip"/>
- 
-    <!--  Button to create a new klacht screen -->
-    <Button android:id="@+id/btnCreateProduct"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Plaats een klacht"
-        android:layout_marginTop="25dip"/>
-    
- <!--  Bekijk IMEI nummer -->
-    <Button android:id="@+id/mijnklacht"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="check mijn IMEI nummer"
-        android:layout_marginTop="25dip"/>
-    
-    <!--  Bekijk mijn klachten -->
-    <Button android:id="@+id/mijnklacht1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Bekijk mijn klachten"
-        android:layout_marginTop="25dip"/>
+    android:background="#ffffff"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TableLayout
+                android:id="@+id/TableLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/btnViewProducts"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:baselineAlignBottom="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/list_icon" />
+                        
+                        <TextView
+                            android:id="@+id/textViewMap"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="Bekijk alle klachten" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.01"
+                        android:background="#cdcdcd"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/btnCreateProduct"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/list_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMail"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="Nieuwe klacht indienen" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="#cdcdcd" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/mijnklacht"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:baselineAlignBottom="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/list_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMap"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="Wat is mijn Imei nummer" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.01"
+                        android:background="#cdcdcd"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <ImageButton
+                            android:id="@+id/mijnklacht1"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/list_icon" />
+
+                        <TextView
+                            android:id="@+id/textViewMail"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="Bekijk eigen klachten" />
+                    </LinearLayout>
+                </TableRow>
+                
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
 </LinearLayout>

@@ -56,7 +56,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		
 		//spinners waar je onderwerpen kan selecteren
 		subject = (Spinner) findViewById(R.id.spinner);
-		String subjects[] = new String[] {"Aard van de overlast", "afval", "bodem", "Stankoverlast", "Geluidsoverlast", "Stofoverlast", "Lichtoverlast" };
+		String subjects[] = new String[] {"Aard van de overlast", "afval", "bodem", "Diverse", "Lawaai", "Stof", "Stank", "Visuele Hinder", "Water", "Vliegverkeer"  };
 		subject.setOnItemSelectedListener(this);
 		ArrayAdapter<String> sa = new ArrayAdapter<String>(this,
 				R.layout.spinner_item, subjects);
@@ -66,7 +66,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		
 
 		spinner = (Spinner) findViewById(R.id.spinner1);
-		String onderwerpen[] = new String[] {"Sub aard", "riool", "kassen", "rook", "vliegtuig", "fabriek", "muziek" };
+		String onderwerpen[] = new String[] {"Sub aard", "Algemeen", "Graan / Meel ", "Horeca Evenementen", "Helicoper", "Vliegtuig", "Overig", "Voedingswaren", "Verkeersstank", "Baklucht", 
+				"Olie", "Chemisch", "Laag / Hoogfrequent" };
 		spinner.setOnItemSelectedListener(this);
 		ArrayAdapter<String> subaard = new ArrayAdapter<String>(this,
 				R.layout.spinner_item, onderwerpen);
@@ -75,7 +76,8 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		;
 		
 		spinner1 = (Spinner) findViewById(R.id.spinner2);
-		String subonderwerpen[] = new String[] {"Sub sub aard", "helicopter", "brandlucht", "DJ", "feest" };
+		String subonderwerpen[] = new String[] {"Sub sub aard", "Algemeen", "Mechanische Muziek", "Alarm", "Vliegtuig vloog te laag", "Dreunende bas", "Uitlaatgassen verkeer", 
+				"Alcohol", "Heien", "Stookolie", "Roetpluim", "Benzine" };
 		spinner1.setOnItemSelectedListener( this);
 		ArrayAdapter<String> subsubaard = new ArrayAdapter<String>(this,
 				R.layout.spinner_item, subonderwerpen);
@@ -115,6 +117,10 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 					Itelefoonnummer.setError("Vul een geldig telefoonnummer in");
 				} else if (Ipostcode.getText().toString().length() == 0) {
 					Ipostcode.setError("Vul een postcode in");
+				} else if (Istraat.getText().toString().length() == 0){
+					Istraat.setError("Vul een straatnaam in");
+				} else if (Istad.getText().toString().length() == 0) {
+					Istad.setError("Vul een stad of dorp in");
 				}
 				else{
 				// creating new klacht in background thread
@@ -143,7 +149,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(NewProductActivity.this);
-			pDialog.setMessage("Creating Product..");
+			pDialog.setMessage("Klacht opslaan..");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
@@ -202,7 +208,7 @@ public class NewProductActivity extends Activity implements OnItemSelectedListen
 
 				if (success == 1) {
 					// successfully created product
-					Intent i = new Intent(getApplicationContext(), AllProductsActivity.class);
+					Intent i = new Intent(getApplicationContext(), MijnKlachten.class);
 					startActivity(i);
 					
 					// closing this screen

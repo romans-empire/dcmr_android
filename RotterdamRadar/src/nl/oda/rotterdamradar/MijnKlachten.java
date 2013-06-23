@@ -125,7 +125,7 @@ public class MijnKlachten extends ListActivity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(MijnKlachten.this);
-			pDialog.setMessage("Loading products. Please wait...");
+			pDialog.setMessage("Loading klachten. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
